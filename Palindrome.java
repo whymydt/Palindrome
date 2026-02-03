@@ -2,12 +2,18 @@ import java.util.Scanner;
 
 public class Palindrome {
     public static void main(String[] args) {
-        // Input berupa sebuah kata dengan susunan huruf acak
+        // Input must be in a single word, multi words will be merged into one and converted to lowercase characters
         Scanner scan = new Scanner(System.in);
         String inputText;
-        System.out.println("Input sembarang kata dengan susunan huruf acak : ");
+        System.out.println("Input any word with random character order : ");
         inputText = scan.nextLine();
-        checkPalindromeStr(inputText);
+
+        // Remove whitespace and convert to lowercase
+        String textToProcess = inputText.replaceAll("\\s", "");
+        textToProcess.toLowerCase();
+
+        // Check if palindrome
+        checkPalindromeStr(textToProcess);
     }
 
     static int compare(String palindromeStr, String textToCompare) {
